@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.screen {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Tela Inicial com Plano de Fundo Personalizado */
+#welcome-screen {
+    background-color: #1f4722;
+    background-image: url('bg-escala.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Botão Hambúrguer */
+.hamburger-btn {
+    background: rgba(15, 38, 18, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.hamburger-btn:hover {
+    background: rgba(24, 58, 28, 0.9);
+    transform: scale(1.04);
+}
+
+.hamburger-btn:active {
+    transform: scale(0.96);
+}
+
+/* Drawer Lateral do Menu */
+#hamburger-drawer {
+    background: linear-gradient(180deg, #163619 0%, #1d4620 60%, #132e15 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Botão Centralizado do Esquilo */
+.squirrel-start-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    animation: subtlePulse 3s ease-in-out infinite;
+}
+
+.squirrel-start-btn img {
+    width: 380px;       /* ajuste o tamanho aqui */
+    height: 380px;      /* mantenha igual à width para ficar redondo */
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-t {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.badge-holiday {
+    background-color: #fef3c7 !important;
+    color: #b45309 !important;
+    border: 1px solid #fde68a !important;
+}
+
+.cell-interactive {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cell-interactive:active {
+    transform: scale(0.92);
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
