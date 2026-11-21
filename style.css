@@ -59,8 +59,8 @@
 }
 
 .squirrel-start-btn img {
-    width: 280px;       /* ajuste o tamanho aqui */
-    height: 280px;      /* mantenha igual à width para ficar redondo */
+    width: 180px;       /* ajuste o tamanho aqui */
+    height: 180px;      /* mantenha igual à width para ficar redondo */
     border-radius: 50%;
     object-fit: cover;
     display: block;
