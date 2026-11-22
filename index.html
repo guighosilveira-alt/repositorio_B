@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Escalas - Ferramenta de Apoio 5x2</title>
+    <title>Gestor de Escalas - Ferramenta de Apoio 5x2 (4 Semanas)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -11,7 +11,7 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Tela Inicial / Welcome Screen -->
-    <div id="welcome-screen" class="screen active min-h-screen flex-col justify-center items-center relative overflow-hidden">
+    <div id="welcome-screen" style="background-image: url('./bg-escala.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" class="screen active min-h-screen flex-col justify-center items-center relative overflow-hidden">
         
         <!-- Botão Menu Hambúrguer no Topo Superior Esquerdo -->
         <button id="btn-hamburger" onclick="toggleHamburgerMenu()" aria-label="Abrir menu" title="Menu" class="hamburger-btn fixed top-5 left-5 z-40 w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-lg transition-all">
@@ -52,13 +52,13 @@
 
             <!-- Rodapé do Menu -->
             <div class="p-4 border-t border-white/15 text-[11px] leading-relaxed text-white/80 bg-black/20">
-                Versão 1.0.0 - &copy; 2026 Desenvolvido por Rodrigo Silveira - 011545287
+                Versão 1.1.0 - &copy; 2026 Desenvolvido por Rodrigo Silveira - 011545287
             </div>
         </aside>
 
         <!-- Botão Centralizado do Esquilo para Acessar a Tela Seguinte -->
         <button id="btn-start" onclick="openApp()" title="Acessar Escala de Trabalho" aria-label="Acessar Escala de Trabalho" class="squirrel-start-btn group relative flex items-center justify-center focus:outline-none">
-            <img src="esquilo-btn.png" alt="Acessar Gestão de Escalas" class="w-40 h-40 sm:w-48 sm:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-105 group-active:scale-95">
+            <img src="./esquilo-btn.png" alt="Acessar Gestão de Escalas" class="w-40 h-40 sm:w-48 sm:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-105 group-active:scale-95">
         </button>
 
     </div>
@@ -77,13 +77,13 @@
             </div>
             <div class="space-y-2.5 text-xs text-slate-600 leading-relaxed">
                 <p>
-                    <strong class="text-slate-800">Ferramenta de Apoio — Gestão de Escalas 5x2</strong> foi desenvolvida para auxiliar na organização, distribuição e controle de folgas de equipes operacionais por horário de entrada e turno.
+                    <strong class="text-slate-800">Ferramenta de Apoio — Gestão de Escalas 5x2</strong> foi desenvolvida para auxiliar na organização, distribuição e controle de folgas de equipes operacionais ao longo de 4 semanas por horário de entrada e turno.
                 </p>
                 <p>
-                    O sistema aplica regras inteligentes de dimensionamento (teto de 20% a 30% de folgas diárias, limite de 1/5 por turno, alerta em quartas e sábados, controle de feriados e trava obrigatória no 4º domingo consecutivo).
+                    Inclui filtros por turno (Manhã/Intermediário 06:00–11:59 e Noite 12:00–00:00), visualização individual por semana (1ª a 4ª) ou consolidada em linha, matrícula do colaborador, configuração de feriados nas 4 semanas, sinalização disciplinar por duplo clique e exportação em CSV e PDF.
                 </p>
                 <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-[11px] text-slate-500">
-                    Versão 1.0.0 - &copy; 2026 Desenvolvido por Rodrigo Silveira - 011545287
+                    Versão 1.1.0 - &copy; 2026 Desenvolvido por Rodrigo Silveira - 011545287
                 </div>
             </div>
             <div class="flex justify-end pt-2 border-t border-slate-100">
@@ -104,34 +104,49 @@
                     </div>
                     <div>
                         <h2 class="font-bold text-base sm:text-lg leading-tight">Gestor de Escalas 5x2</h2>
-                        <span class="text-xs text-slate-400">Distribuição por Horário & Turnos</span>
+                        <span class="text-xs text-slate-400">Ciclo Mensal (4 Semanas) &bull; Turnos & Folgas</span>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <button onclick="openManageHorariosModal()" title="Gerenciar Horários e Cores" class="bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/30 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                    <button onclick="openManageHorariosModal()" title="Gerenciar Horários e Cores" class="bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
                         <i class="fa-solid fa-clock text-xs"></i>
-                        <span class="hidden sm:inline">Horários</span>
+                        <span class="hidden md:inline">Horários</span>
                     </button>
-                    <button onclick="openCalendarModal()" title="Ver Calendário Dinâmico" class="bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                    <button onclick="openCalendarModal()" title="Ver Calendário Dinâmico" class="bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
                         <i class="fa-solid fa-calendar-check text-xs"></i>
-                        <span class="hidden sm:inline">Calendário</span>
+                        <span class="hidden md:inline">Calendário</span>
                     </button>
-                    <button onclick="openHolidayModal()" title="Configurar Feriados" class="bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                    <button onclick="openHolidayModal()" title="Configurar Feriados das 4 Semanas" class="bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 border border-amber-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
                         <i class="fa-solid fa-umbrella-beach text-xs"></i>
-                        <span class="hidden sm:inline">Feriados</span>
+                        <span class="hidden md:inline">Feriados</span>
                     </button>
-                    <button onclick="exportToCSV()" title="Exportar CSV" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-download text-xs"></i>
+                    <button onclick="exportToCSV()" title="Salvar Escala em CSV" class="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-csv text-xs"></i>
                         <span class="hidden sm:inline">CSV</span>
                     </button>
-                    <button onclick="goHome()" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                    <button onclick="exportToPDF()" title="Salvar / Imprimir Escala em PDF" class="bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-pdf text-xs"></i>
+                        <span class="hidden sm:inline">PDF</span>
+                    </button>
+                    <button onclick="goHome()" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
                         <i class="fa-solid fa-right-from-bracket text-xs"></i>
-                        <span>Sair</span>
+                        <span class="hidden sm:inline">Sair</span>
                     </button>
                 </div>
             </div>
         </header>
+
+        <!-- Cabeçalho exclusivo para impressão/PDF -->
+        <div id="print-header" class="hidden print:block px-4 py-3 border-b border-slate-300 mb-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-base font-bold text-slate-900">Relatório de Escala de Trabalho 5x2</h1>
+                    <p id="print-subtitle" class="text-xs text-slate-600">Ciclo de 4 Semanas</p>
+                </div>
+                <div id="print-date" class="text-xs text-slate-500"></div>
+            </div>
+        </div>
 
         <!-- Main Content -->
         <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
@@ -140,7 +155,7 @@
             <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div class="flex items-center justify-between text-slate-500 text-xs font-semibold uppercase tracking-wider mb-2">
-                        <span>Total Equipe</span>
+                        <span>Total Equipe (Filtrada)</span>
                         <i class="fa-solid fa-users text-blue-500 text-sm"></i>
                     </div>
                     <div class="flex items-baseline gap-2">
@@ -173,7 +188,7 @@
 
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div class="flex items-center justify-between text-slate-500 text-xs font-semibold uppercase tracking-wider mb-2">
-                        <span>Média Folgas/Dia</span>
+                        <span id="avg-folgas-label">Média Folgas/Dia</span>
                         <i class="fa-solid fa-calculator text-indigo-500 text-sm"></i>
                     </div>
                     <div class="flex items-baseline gap-2">
@@ -190,7 +205,7 @@
                         <i class="fa-solid fa-palette text-blue-600"></i>
                         <span>Horários de Entrada Cadastrados & Distribuição por Turno</span>
                     </h4>
-                    <button onclick="openManageHorariosModal()" class="text-xs text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1">
+                    <button onclick="openManageHorariosModal()" class="no-print text-xs text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1">
                         <i class="fa-solid fa-gear"></i> Gerenciar
                     </button>
                 </div>
@@ -201,14 +216,16 @@
 
             <!-- Resumo Diário de Folgas -->
             <section class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
                         <i class="fa-solid fa-chart-simple text-blue-600"></i>
-                        <span>Distribuição Diária de Folgas (Geral & Alertas de Turno)</span>
+                        <span id="daily-summary-title">Distribuição Diária de Folgas — 1ª Semana</span>
                     </h4>
-                    <span id="holiday-alert-badge" class="hidden text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-0.5 rounded border border-amber-300">
-                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Feriado Ativo
-                    </span>
+                    <div class="flex items-center gap-2">
+                        <span id="holiday-alert-badge" class="hidden text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-0.5 rounded border border-amber-300">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> Feriado Ativo
+                        </span>
+                    </div>
                 </div>
                 <div id="daily-summary" class="grid grid-cols-7 gap-1 sm:gap-2 text-center">
                     <!-- Gerado dinamicamente -->
@@ -216,22 +233,57 @@
             </section>
 
             <!-- Controles, Busca e Filtros -->
-            <section class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+            <section id="controls-section" class="no-print bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                
+                <!-- Barra Superior: Seleção de Semana + Busca -->
+                <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
                     
-                    <!-- Campo de Busca -->
-                    <div class="relative flex-grow max-w-md">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                        <input type="text" id="search-input" onkeyup="filterTable()" placeholder="Buscar por colaborador, ID ou horário..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition">
+                    <!-- Seletor de Visualização por Semana (1ª, 2ª, 3ª, 4ª ou Todas em Linha) -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
+                        <span class="text-[11px] font-bold uppercase text-slate-500 px-2 flex items-center gap-1">
+                            <i class="fa-solid fa-calendar-week text-blue-600"></i> Semana:
+                        </span>
+                        <button type="button" onclick="setWeekView('0')" id="week-btn-0" class="week-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-blue-600 text-white shadow-sm">
+                            1ª Semana
+                        </button>
+                        <button type="button" onclick="setWeekView('1')" id="week-btn-1" class="week-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-white">
+                            2ª Semana
+                        </button>
+                        <button type="button" onclick="setWeekView('2')" id="week-btn-2" class="week-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-white">
+                            3ª Semana
+                        </button>
+                        <button type="button" onclick="setWeekView('3')" id="week-btn-3" class="week-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-white">
+                            4ª Semana
+                        </button>
+                        <button type="button" onclick="setWeekView('all')" id="week-btn-all" class="week-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-white flex items-center gap-1">
+                            <i class="fa-solid fa-table-columns text-[11px]"></i> Todas (4 Semanas)
+                        </button>
                     </div>
 
-                    <!-- Filtros Rápidos -->
+                    <!-- Campo de Busca por Nome, Matrícula/ID ou Horário -->
+                    <div class="relative flex-grow max-w-md">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="search-input" onkeyup="filterTable()" placeholder="Buscar por nome, matrícula ou horário..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition">
+                    </div>
+                </div>
+
+                <!-- Linha Inferior: Filtros por Turno, Horário, Dia, Status e Botões de Ação -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
                     <div class="flex flex-wrap items-center gap-2">
-                        <select id="horario-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                        <!-- Filtro de Turno (Manhã/Intermediário 06:00-11:59 e Noite 12:00-00:00) -->
+                        <select id="turno-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm px-3 py-2 text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                            <option value="all">Todos os Turnos</option>
+                            <option value="manha">Manhã / Intermediário (06:00 às 11:59)</option>
+                            <option value="noite">Noite (12:00 às 00:00)</option>
+                        </select>
+
+                        <!-- Filtro de Horário Específico -->
+                        <select id="horario-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
                             <option value="all">Todos os Horários</option>
                         </select>
 
-                        <select id="day-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                        <!-- Filtro por Dia da Semana -->
+                        <select id="day-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
                             <option value="all">Todos os Dias</option>
                             <option value="0">Segunda-feira</option>
                             <option value="1">Terça-feira</option>
@@ -242,27 +294,32 @@
                             <option value="6">Domingo</option>
                         </select>
 
-                        <select id="status-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                        <!-- Filtro por Status (T/F) -->
+                        <select id="status-filter" onchange="filterTable()" class="bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
                             <option value="all">Todos Status</option>
-                            <option value="F">Com Folga no Dia Selecionado</option>
-                            <option value="T">Trabalhando no Dia Selecionado</option>
+                            <option value="F">Com Folga (F)</option>
+                            <option value="T">Trabalhando (T)</option>
                         </select>
+                    </div>
 
-                        <button onclick="openAddModal()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="openAddModal()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 shadow-xs">
                             <i class="fa-solid fa-plus text-xs"></i>
-                            <span>Novo</span>
+                            <span>Novo Colaborador</span>
                         </button>
                         
-                        <button onclick="resetData()" title="Restaurar padrão apenas das colunas da semana para T" class="bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200 text-sm px-3 py-2 rounded-lg transition flex items-center gap-1">
+                        <button onclick="resetData()" title="Resetar para T somente a escala correspondente ao filtro selecionado" class="bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200 text-xs sm:text-sm px-3 py-2 rounded-lg transition flex items-center gap-1">
                             <i class="fa-solid fa-rotate-left"></i>
-                            <span class="hidden sm:inline">Resetar T</span>
+                            <span>Resetar T</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+                <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 pt-2 border-t border-slate-100">
                     <span id="counter-info">Exibindo 0 colaboradores</span>
-                    <span class="hidden sm:inline text-slate-400"><i class="fa-solid fa-shield-cat mr-1"></i>Regras: Máx 30% equipe global (evitado em 4ª/Sáb) | Máx 20% (1/5) por turno | 4º Domingo obrigatório folga.</span>
+                    <span class="text-slate-400">
+                        <i class="fa-solid fa-pen-to-square text-blue-500 mr-1"></i>Dica: Clique no <strong>nome</strong> ou na <strong>matrícula</strong> para editar (Enter salva); <strong>duplo clique</strong> no nome ativa/remove a flag de <em>Orientação/verificação disciplinar</em>.
+                    </span>
                 </div>
             </section>
 
@@ -270,20 +327,8 @@
             <section class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="overflow-x-auto">
                     <table id="escala-table" class="w-full text-sm text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-600 border-b border-slate-200 text-xs font-semibold uppercase tracking-wider">
-                                <th scope="col" class="py-3 px-3 text-center w-12">ID</th>
-                                <th scope="col" class="py-3 px-4">Colaborador</th>
-                                <th scope="col" class="py-3 px-3 min-w-[130px]">Horário Entrada</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16">Seg</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16">Ter</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16">Qua</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16">Qui</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16">Sex</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16 bg-slate-200/50">Sáb</th>
-                                <th scope="col" class="py-3 px-2 text-center w-14 sm:w-16 bg-slate-200/50">Dom</th>
-                                <th scope="col" class="py-3 px-2 text-center w-20">Ações</th>
-                            </tr>
+                        <thead id="table-head">
+                            <!-- Cabeçalho dinâmico (1 semana ou 4 semanas em linha) -->
                         </thead>
                         <tbody id="table-body" class="divide-y divide-slate-100">
                             <!-- Conteúdo renderizado via JS -->
@@ -303,11 +348,11 @@
             </div>
             
             <p class="text-xs text-slate-500 leading-relaxed">
-                Adicione novos horários de entrada ou ajuste as cores associadas aos turnos existentes.
+                Adicione novos horários de entrada (ex: 07:30, 09:00, 14:00) ou ajuste as cores associadas. Horários entre 06:00 e 11:59 pertencem ao turno <strong>Manhã/Intermediário</strong>; entre 12:00 e 00:00 pertencem ao turno <strong>Noite</strong>.
             </p>
 
             <form onsubmit="handleAddHorario(event)" class="flex gap-2">
-                <input type="text" id="new-horario-time" placeholder="Ex: 08:00 ou 14:30" required class="flex-grow px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="time" id="new-horario-time" required class="flex-grow px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <input type="color" id="new-horario-color" value="#0284c7" title="Escolha a cor do turno" class="h-10 w-12 rounded border border-slate-200 cursor-pointer p-1">
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition">
                     Adicionar
@@ -326,16 +371,22 @@
 
     <!-- Modal Adicionar Colaborador -->
     <div id="modal-add" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 space-y-4">
+        <div class="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 space-y-4 max-h-[92vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                 <h3 class="font-bold text-slate-800 text-lg">Adicionar Colaborador</h3>
                 <button onclick="closeAddModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             
             <form id="add-form" onsubmit="handleAddColaborador(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Nome do Colaborador</label>
-                    <input type="text" id="new-nome" required placeholder="Ex: João Silva" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Matrícula / ID</label>
+                        <input type="text" id="new-matricula" placeholder="Ex: 011545287" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Nome do Colaborador</label>
+                        <input type="text" id="new-nome" required placeholder="Ex: João Silva" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
                 </div>
 
                 <div>
@@ -345,7 +396,8 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-2">Escala Inicial (Marque os dias de FOLGA)</label>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Escala Inicial (1ª Semana — Marque os dias de FOLGA)</label>
+                    <p class="text-[11px] text-slate-400 mb-2">As semanas 2, 3 e 4 iniciarão em Trabalho (T) e poderão ser editadas diretamente na tabela.</p>
                     <div class="grid grid-cols-7 gap-1 text-center text-xs">
                         <label class="cursor-pointer"><input type="checkbox" id="folga-0" class="peer hidden"><div class="p-2 border rounded peer-checked:bg-red-500 peer-checked:text-white peer-checked:border-red-600 border-slate-200 font-semibold">Seg</div></label>
                         <label class="cursor-pointer"><input type="checkbox" id="folga-1" class="peer hidden"><div class="p-2 border rounded peer-checked:bg-red-500 peer-checked:text-white peer-checked:border-red-600 border-slate-200 font-semibold">Ter</div></label>
@@ -365,23 +417,32 @@
         </div>
     </div>
 
-    <!-- Modal Configurar Feriados -->
+    <!-- Modal Configurar Feriados (4 Semanas) -->
     <div id="modal-holiday" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 space-y-4">
+        <div class="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="font-bold text-slate-800 text-lg">Configurar Feriados na Semana</h3>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-lg">Configurar Feriados (4 Semanas)</h3>
+                </div>
                 <button onclick="closeHolidayModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             
-            <p class="text-xs text-slate-500">Selecione quais dias da semana possuem feriado oficial. Caso haja feriado, colaboradores que trabalharem farão jus à folga compensatória.</p>
+            <p class="text-xs text-slate-500 leading-relaxed">
+                Selecione os dias com feriado oficial em cada uma das <strong>4 semanas</strong>. Colaboradores escalados para trabalho em dias de feriado farão jus à folga compensatória.
+            </p>
 
-            <div class="space-y-2">
-                <div class="grid grid-cols-7 gap-1 text-center text-xs" id="holiday-checkboxes">
-                </div>
+            <div class="space-y-3" id="holiday-checkboxes">
+                <!-- Renderizado via JS para as 4 semanas -->
             </div>
 
-            <div class="flex justify-end gap-2 pt-2">
-                <button type="button" onclick="closeHolidayModal()" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">Salvar Feriados</button>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                <button type="button" onclick="clearAllFeriados()" class="text-xs text-red-600 hover:text-red-800 font-semibold">
+                    Limpar Todos os Feriados
+                </button>
+                <button type="button" onclick="closeHolidayModal()" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">Concluir</button>
             </div>
         </div>
     </div>
